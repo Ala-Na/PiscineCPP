@@ -6,14 +6,14 @@
 #    By: anadege <anadege@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 17:40:15 by anadege           #+#    #+#              #
-#    Updated: 2021/10/27 18:01:59 by anadege          ###   ########.fr        #
+#    Updated: 2021/11/02 11:32:49 by anadege          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror
 
 SRCS_DIR = .
 SRCS = megaphone.cpp
@@ -31,13 +31,13 @@ all: $(NAME)
 
 $(NAME):	$(OBJS)
 			@echo "\nAssembling $(NAME)"
-			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 			@echo "Done !"
 
 -include $(PREREQ)
 
 $(OBJS_DIR)/%.o: %.cpp | $(OBJS_DIR)
-			@$(CC) $(CFLAGS) -c $< -o $@
+			@$(CXX) $(CXXFLAGS) -c $< -o $@
 			@echo -n "\rCreation of $(NAME) objects"
 
 $(OBJS_DIR):

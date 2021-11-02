@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Contact_class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 20:04:48 by anadege           #+#    #+#             */
-/*   Updated: 2021/10/27 20:33:44 by anadege          ###   ########.fr       */
+/*   Updated: 2021/11/02 22:25:50 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONTACT_CLASS_HPP
 
 # include <iostream>
+# include <string>
+# include <iomanip>
 
 class Contact {
 
@@ -35,8 +37,6 @@ public:
 	std::string	getNickname(void) const;
 
 private:
-// Boolean to define if is empty
-	bool		_is_empty;
 // Infos
 	std::string	_first_name;
 	std::string	_last_name;
