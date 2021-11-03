@@ -25,13 +25,19 @@ public:
 	Phonebook(void);
 	~Phonebook(void);
 
-	void	DisplayMenu(void);
-	void	AddContact(std::vector<Contact> _contacts);
-	void	SearchContact(std::vector<Contact> const& _contacts);
-	void	ExitPhonebook(void);
+//	Function for actions
+	void	displayMenu(void);	
+	void	addContact(std::vector<Contact> _contacts);
+	void	searchContactMenu(std::vector<Contact> const& _contacts);
+	void	searchSpecificContact(std::vector<Contact> const& _contacts, int nb_contacts_filled);
+	void	exitPhonebook(void);
+
+// Utils functions
+	int		findNextEmptyContactIndex(std::vector<Contact> _contacts(_nbr_contacts));
+	void	printInfoForSearch(std::string to_print);
 
 private:
-	int const	_nbr_contacts = 8;
+	int const	_nbr_contacts;
 	std::vector<Contact> _contacts(_nbr_contacts);
 
 };

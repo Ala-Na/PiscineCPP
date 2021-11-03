@@ -25,16 +25,23 @@ public:
 	~Contact(void);
 
 // Set functions
-	void	setFirstName(std::string first_name);
-	void	setLastName(std::string last_name);
-	void	setNickname(std::string nickname);
-	void	setPhoneNumber(std::string phone_number);
-	void	setDarkestSecret(std::string darkest_secret);
+	void	setFirstName(void);
+	void	setLastName(void);
+	void	setNickname(void);
+	void	setPhoneNumber(void);
+	void	setDarkestSecret(void);
+
+// Utils functions
+	bool	checkValidName(std::string to_check);
+	bool	checkValidPhoneNumber(std::string to_check);
+	bool	checkContactIsEmpty(void);
 
 // Get functions
 	std::string	getFirstName(void) const;
 	std::string	getLastName(void) const;
 	std::string	getNickname(void) const;
+	std::string	getPhoneNumber(void) const;
+	std::string	getDarkestSecret(void) const;
 
 private:
 // Infos

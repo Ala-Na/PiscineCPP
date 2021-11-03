@@ -15,5 +15,24 @@
 
 int	main()
 {
-	Phonebook	phonebook;
+	Phonebook	phonebook(8);
+	std::string	input;
+
+	while (1)
+	{
+		phonebook.displayMenu();
+		std::getline(std::cin, input);
+		if (!input.compare("ADD"))
+			addContact()
+		else if (!input.compare("SEARCH"))
+			searchContactMenu();
+		else if (!input.compare("EXIT"))
+			break ;
+		else
+		{
+			std::cout << "Input not corresponding to any option. Retry." << std::endl;
+		}
+	}
+	std::cout << "Exit phonebook and erase contacts." << std::endl;
+	return (0);
 }
