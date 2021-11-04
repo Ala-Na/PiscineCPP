@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#ifndef CONTACT_CLASS_H
+# define CONTACT_CLASS_H
 
 # include <iostream>
 # include <iomanip>
