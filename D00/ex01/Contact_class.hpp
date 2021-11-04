@@ -14,8 +14,9 @@
 # define CONTACT_CLASS_HPP
 
 # include <iostream>
-# include <string>
 # include <iomanip>
+# include <string>
+# include <vector>
 
 class Contact {
 
@@ -45,11 +46,11 @@ public:
 
 private:
 // Infos
-	std::string	_first_name;
-	std::string	_last_name;
-	std::string	_nickname;
-	std::string	_phone_number;
-	std::string	_darkest_secret;
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_number;
+	std::string	darkest_secret;
 
 };
 
