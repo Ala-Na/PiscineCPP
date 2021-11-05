@@ -18,7 +18,6 @@ Phonebook::Phonebook(void)
     std::cout << "--------------------------" << std::endl;
     std::cout << "You entered your phonebook" << std::endl;
     std::cout << "--------------------------" << std::endl;
-    Contact contacts[8];
 }
 
 Phonebook::~Phonebook(void)
@@ -26,7 +25,7 @@ Phonebook::~Phonebook(void)
 	std::cout << "Exit phonebook and erase contacts." << std::endl;    
 }
 
-void    Phonebook::printInfoForSearch(std::string & to_print)
+void    Phonebook::printInfoForSearch(std::string to_print)
 {
     if (to_print.size() >= 10)
     {
@@ -37,24 +36,22 @@ void    Phonebook::printInfoForSearch(std::string & to_print)
     std::cout << to_print;
 }
 
-int     Phonebook::getFirstEmptyContact(void)
+int     Phonebook::getFirstEmptyContactIndex(void)
 {
-    int i;
-
-    for (i = 0; i < 8; i++)
+    for (int i = 0; i < 8; i++)
     {
         if (contacts[i].getFirstName().empty())
-            break ;
+            return i;
     }
-    return i;
+    return -1;
 }
 
 void    Phonebook::addContact(void)
 {
     int i;
 
-    i = getFirstEmptyContact();
-	if (i == 7 && !contacts[i].getFirstName().empty())
+    i = getFirstEmptyContactIndex();
+	if (i == -1)
 	{
 		std::cout << "Contact list is full ! Can't add any contact." <<std::endl;
 		return ;
@@ -65,6 +62,18 @@ void    Phonebook::addContact(void)
     contacts[i].setPhoneNumber();
     contacts[i].setDarkestSecret();
     std::cout << "New contact successfully added !" << std::endl;
+}
+
+int Phonebook::getIndexFromInput(std::string input)
+{
+    int index;
+
+    if (input.empty() || input.size() > 1 || input[0] <= '0' || input[0] > '8')
+        return -1;
+    index = std::atoi(input.c_str()) - 1;
+    if (contacts[index].getFirstName().empty())
+        return -1;
+    return index;
 }
 
 void    Phonebook::displayMenu(void)
@@ -79,22 +88,16 @@ void    Phonebook::displayMenu(void)
 
 void    Phonebook::searchSpecificContact(void)
 {
-    int     index;
+    std::string    input;
+    int            index;
 
     do {
         std::cout << "Enter index of contact you wish to see : ";
-        std::cin >> index;
-        index -= 1;
-        if (std::cin.fail() || index < 0 || index >= getFirstEmptyContact())
-            std::cout << "Index is invalid, please retry." << std::endl;
-        if (std::cin.fail())
-        {
-            index = -1;
-            std::cin.clear();
-            std::cin.ignore(526, '\n');
-        }
-    } while (std::cin.fail() || index < 0 || index >= getFirstEmptyContact());
-    std::cin.ignore();
+		std::getline(std::cin, input);
+        index = getIndexFromInput(input);
+        if (index == -1)
+            std::cout << "Invalid index. Please, retry." << std::endl;
+    } while (index == -1);
     std::cout << "-------------------------------------------" << std::endl;
 	std::cout << "First name: ";
     std::cout << contacts[index].getFirstName() << std::endl;
@@ -113,7 +116,7 @@ void    Phonebook::searchContactMenu(void)
 {
     int nbr_contacts_filled;
     
-    nbr_contacts_filled = getFirstEmptyContact();
+    nbr_contacts_filled = getFirstEmptyContactIndex();
     if (nbr_contacts_filled == 0)
     {
         std::cout << "Phonebook is empty. Nothing to search." << std::endl;
@@ -121,7 +124,7 @@ void    Phonebook::searchContactMenu(void)
     }
     std::cout << "  index   |first name|last  name| nickname " << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
-    for (int index = 0; index < nbr_contacts_filled; index++)
+    for (int index = 0; !contacts[index].getFirstName().empty(); index++)
     {
         std::cout << "         " << index + 1 << "|";
         printInfoForSearch(contacts[index].getFirstName());

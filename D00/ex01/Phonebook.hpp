@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <cstdlib>
 # include "Contact.hpp"
 
 class Phonebook {
@@ -29,8 +30,9 @@ public:
 
 private:
     void    searchSpecificContact(void);
-    void    printInfoForSearch(std::string & to_print);
-    int     getFirstEmptyContact(void);
+    void    printInfoForSearch(std::string to_print);
+    int     getFirstEmptyContactIndex(void);
+    int     getIndexFromInput(std::string input);
     Contact contacts[8];
 };
 
