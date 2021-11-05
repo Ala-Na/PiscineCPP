@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef __PHONEBOOK_H__
+# define __PHONEBOOK_H__
 
 # include <iostream>
 # include <iomanip>
