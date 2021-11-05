@@ -54,22 +54,22 @@ Account::~Account(void)
 // Get functions to access private elements
 int  Account::getNbAccounts(void)
 {
-    return (_nbAccounts);
+    return _nbAccounts;
 }
 
 int  Account::getTotalAmount(void)
 {
-    return (_totalAmount);
+    return _totalAmount;
 }
 
 int  Account::getNbDeposits(void)
 {
-    return (_totalNbDeposits);
+    return _totalNbDeposits;
 }
 
 int  Account::getNbWithdrawals(void)
 {
-    return (_totalNbWithdrawals);
+    return _totalNbWithdrawals;
 }
 
 //Others functions
@@ -88,7 +88,9 @@ void    Account::makeDeposit(int deposit)
     std::cout << " index:" << _accountIndex << ";";
     std::cout << "p_amount:" << _amount << ";";
     _amount += deposit;
+    _totalAmount += deposit;
     _nbDeposits += 1;
+    _totalNbDeposits += 1;
     std::cout << "deposit:" << deposit << ";";
     std::cout << "amount:" << _amount << ";";
     std::cout << "nb_deposits:" << _nbDeposits << std::endl;
@@ -102,19 +104,21 @@ bool	Account::makeWithdrawal(int withdrawal)
     if (_amount < withdrawal)
     {
         std::cout << "withdrawal:refused" << std::endl;
-        return (false);
+        return false;
     }
     _amount -= withdrawal;
+    _totalAmount -= withdrawal;
     _nbWithdrawals += 1;
-    std::cout << "deposit:" << withdrawal << ";";
+    _totalNbWithdrawals += 1;
+    std::cout << "withdrawal:" << withdrawal << ";";
     std::cout << "amount:" << _amount << ";";
     std::cout << "nb_withdrawals:" << _nbWithdrawals << std::endl;
-    return (true)
+    return true;
 ;}
 
 int		Account::checkAmount(void) const
 {
-    return (_amount);
+    return _amount;
 }
 
 void	Account::displayStatus(void) const
@@ -131,6 +135,8 @@ void	Account::_displayTimestamp(void)
     time_t      curr_time = time(0);
     struct tm * time_infos = localtime(&curr_time);
 
+//  Uncomment next line and comment rest to make a diff on output and example
+//  std::cout << "[19920104_091532]";
     std::cout << "[" << 1900 + time_infos->tm_year;
     std::cout << std::setfill('0') << std::setw(2) << 1 + time_infos->tm_mon;
     std::cout << std::setfill('0') << std::setw(2) << time_infos->tm_mday << "_";

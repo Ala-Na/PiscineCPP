@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact_class.hpp                                  :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#ifndef CONTACT_H
+# define CONTACT_H
 
 # include <iostream>
 # include <iomanip>
@@ -21,9 +21,9 @@
 class Contact {
 
 public:
-// Constructors and destructors
+// Constructor
 	Contact(void);
-	~Contact(void);
+// NOTE : Destructor not used so not declared
 
 // Set functions
 	void	setFirstName(void);
@@ -33,9 +33,8 @@ public:
 	void	setDarkestSecret(void);
 
 // Utils functions
-	bool	checkValidName(std::string to_check);
-	bool	checkValidPhoneNumber(std::string to_check);
-	bool	checkContactIsEmpty(void);
+	bool	checkValidName(std::string & to_check);
+	bool	checkValidPhoneNumber(std::string & to_check);
 
 // Get functions
 	std::string	getFirstName(void) const;

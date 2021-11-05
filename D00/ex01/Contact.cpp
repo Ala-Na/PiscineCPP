@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact_class.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(void)
 {
@@ -19,60 +19,37 @@ Contact::Contact(void)
 	nickname = "";
 	phone_number = "";
 	darkest_secret = "";
-	return ;
 }
 
-Contact::~Contact(void)
+bool	Contact::checkValidName(std::string & to_check)
 {
-	return ;
-}
-
-bool	Contact::checkValidName(std::string to_check)
-{
-	int	i;
-
-	i = 0;
-	while (to_check[i])
+	for (std::string::size_t i = 0; i < to_check.size(); i++)
 	{
-		if (!isalpha(to_check[i]) && (i != 0 && to_check[i] != ' '))
+		if ((!isalpha(to_check[i]) && to_check[i] != ' ') || (i == 0 && to_check[i] == ' '))
 		{
 			std::cout << to_check;
 			std::cout << ": not a valid name (only alphabetics characters and spaces)." << std::endl;
 			std::cout << "Please retry." << std::endl;
-			return (false);
+			return false;
 		}
 		i++;
 	}
-	return (true);
+	return true;
 }
 
-bool	Contact::checkValidPhoneNumber(std::string to_check)
+bool	Contact::checkValidPhoneNumber(std::string & to_check)
 {
-	int	i;
-
-	i = 0;
-	while (to_check[i])
+	for (std::string::size_t i = 0; i < to_check.size(); i++)
 	{
 		if (!isdigit(to_check[i]) || (i == 0 && to_check[i] != '0'))
 		{
 			std::cout << to_check;
 			std::cout << ": not a valid phone number (only 10 digits characters, starting with 0)." << std::endl;
 			std::cout << "Please retry." << std::endl;
-			return (false);
+			return false;
 		}
-		i++;
 	}
-	return (true);
-}
-
-bool	Contact::checkContactIsEmpty(void)
-{
-	std::string	checkFirstName;
-
-	checkFirstName = getFirstName();
-	if (checkFirstName.empty())
-		return (false);
-	return (true);
+	return true;
 }
 
 void	Contact::setFirstName(void)
@@ -81,7 +58,6 @@ void	Contact::setFirstName(void)
 		std::cout << "Enter first name :" <<std::endl;
 		std::getline(std::cin, first_name);
 	} while (first_name.empty() || checkValidName(first_name) == false);
-	return ;
 }
 
 void	Contact::setLastName(void)
@@ -90,7 +66,6 @@ void	Contact::setLastName(void)
 		std::cout << "Enter last name :" <<std::endl;
 		std::getline(std::cin, last_name);
 	} while (last_name.empty() || checkValidName(last_name) == false);
-	return ;
 }
 
 void	Contact::setNickname(void)
@@ -99,7 +74,6 @@ void	Contact::setNickname(void)
 		std::cout << "Enter nickname :" <<std::endl;
 		std::getline(std::cin, nickname);
 	} while (nickname.empty());
-	return ;
 }
 
 void	Contact::setPhoneNumber(void)
@@ -108,7 +82,6 @@ void	Contact::setPhoneNumber(void)
 		std::cout << "Enter phone number :" <<std::endl;
 		std::getline(std::cin, phone_number);
 	} while (phone_number.empty() || checkValidPhoneNumber(phone_number) == false);
-	return ;
 }
 
 void	Contact::setDarkestSecret(void)
@@ -121,25 +94,25 @@ void	Contact::setDarkestSecret(void)
 
 std::string	Contact::getFirstName(void) const
 {
-	return (first_name);
+	return (&first_name);
 }
 
 std::string	Contact::getLastName(void) const
 {
-	return (last_name);
+	return (&last_name);
 }
 
 std::string	Contact::getNickname (void) const
 {
-	return (nickname);
+	return (&nickname);
 }
 
 std::string	Contact::getPhoneNumber (void) const
 {
-	return (phone_number);
+	return (&phone_number);
 }
 
 std::string	Contact::getDarkestSecret (void) const
 {
-	return (darkest_secret);
+	return (&darkest_secret);
 }

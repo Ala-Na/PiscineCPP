@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Contact_class.hpp"
+# include "Contact.hpp"
 
-void    printInfoForSearch(std::string to_print)
+void    printInfoForSearch(std::string & to_print)
 {
     if (to_print.size() >= 10)
     {
@@ -23,7 +23,7 @@ void    printInfoForSearch(std::string to_print)
     std::cout << to_print;
 }
 
-void    addContact(std::vector<Contact> &contacts)
+void    addContact(std::vector<Contact> & contacts)
 {
     Contact	new_contact;
 
@@ -39,7 +39,6 @@ void    addContact(std::vector<Contact> &contacts)
     new_contact.setDarkestSecret();
     std::cout << "New contact successfully added !" << std::endl;
 	contacts.push_back(new_contact);
-    return ;
 }
 
 void    displayMenu(void)
@@ -53,7 +52,7 @@ void    displayMenu(void)
 	std::cout << "> ";
 }
 
-void    searchSpecificContact(const std::vector<Contact> &contacts, int nbr_contacts_filled)
+void    searchSpecificContact(const std::vector<Contact> & contacts, int & nbr_contacts_filled)
 {
     int     i_index;
 
@@ -77,13 +76,11 @@ void    searchSpecificContact(const std::vector<Contact> &contacts, int nbr_cont
     std::cout << contacts[i_index].getPhoneNumber() << std::endl;
 	std::cout << "Darkest secret (shhhh): ";
     std::cout << contacts[i_index].getDarkestSecret() << std::endl;
-    return ;
 }
 
-void    searchContactMenu(const std::vector<Contact> &contacts)
+void    searchContactMenu(const std::vector<Contact> & contacts)
 {
     int nbr_contacts_filled;
-    int index;
     
     nbr_contacts_filled = contacts.size();
     if (nbr_contacts_filled == 0)
@@ -93,8 +90,7 @@ void    searchContactMenu(const std::vector<Contact> &contacts)
     }
     std::cout << "  index   |first name|last  name| nickname " << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
-    index = 0;
-    while (index < nbr_contacts_filled)
+    for (int index = 0; index < nbr_contacts_filled; index++)
     {
         std::cout << "         " << index + 1 << "|";
         printInfoForSearch(contacts[index].getFirstName());
@@ -103,10 +99,8 @@ void    searchContactMenu(const std::vector<Contact> &contacts)
         std::cout << "|";
         printInfoForSearch(contacts[index].getNickname());
 		std::cout << std::endl;
-        index++;
     }
     searchSpecificContact(contacts, nbr_contacts_filled);
-    return ;
 }
 
 int	main()
@@ -134,5 +128,5 @@ int	main()
 		std::cout << std::endl;
 	}
 	std::cout << "Exit phonebook and erase contacts." << std::endl;
-	return (0);
+	return 0;
 }
