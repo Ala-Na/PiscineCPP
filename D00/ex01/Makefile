@@ -16,7 +16,7 @@ CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -I$(HEADER_DIR)
 
 SRCS_DIR = .
-SRCS = Contact.cpp main.cpp
+SRCS = Contact.cpp main.cpp Phonebook.cpp
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 OBJS_DIR = .objs

@@ -23,7 +23,7 @@ Contact::Contact(void)
 
 bool	Contact::checkValidName(std::string & to_check)
 {
-	for (std::string::size_t i = 0; i < to_check.size(); i++)
+	for (size_t i = 0; i < to_check.size(); i++)
 	{
 		if ((!isalpha(to_check[i]) && to_check[i] != ' ') || (i == 0 && to_check[i] == ' '))
 		{
@@ -32,14 +32,13 @@ bool	Contact::checkValidName(std::string & to_check)
 			std::cout << "Please retry." << std::endl;
 			return false;
 		}
-		i++;
 	}
 	return true;
 }
 
 bool	Contact::checkValidPhoneNumber(std::string & to_check)
 {
-	for (std::string::size_t i = 0; i < to_check.size(); i++)
+	for (size_t i = 0; i < to_check.size(); i++)
 	{
 		if (!isdigit(to_check[i]) || (i == 0 && to_check[i] != '0'))
 		{
@@ -55,7 +54,7 @@ bool	Contact::checkValidPhoneNumber(std::string & to_check)
 void	Contact::setFirstName(void)
 {
 	do {
-		std::cout << "Enter first name :" <<std::endl;
+		std::cout << "Enter first name : ";
 		std::getline(std::cin, first_name);
 	} while (first_name.empty() || checkValidName(first_name) == false);
 }
@@ -63,7 +62,7 @@ void	Contact::setFirstName(void)
 void	Contact::setLastName(void)
 {
 	do {
-		std::cout << "Enter last name :" <<std::endl;
+		std::cout << "Enter last name : ";
 		std::getline(std::cin, last_name);
 	} while (last_name.empty() || checkValidName(last_name) == false);
 }
@@ -71,7 +70,7 @@ void	Contact::setLastName(void)
 void	Contact::setNickname(void)
 {
 	do {
-		std::cout << "Enter nickname :" <<std::endl;
+		std::cout << "Enter nickname : ";
 		std::getline(std::cin, nickname);
 	} while (nickname.empty());
 }
@@ -79,7 +78,7 @@ void	Contact::setNickname(void)
 void	Contact::setPhoneNumber(void)
 {
 	do {
-		std::cout << "Enter phone number :" <<std::endl;
+		std::cout << "Enter phone number : ";
 		std::getline(std::cin, phone_number);
 	} while (phone_number.empty() || checkValidPhoneNumber(phone_number) == false);
 }
@@ -87,32 +86,32 @@ void	Contact::setPhoneNumber(void)
 void	Contact::setDarkestSecret(void)
 {
 	do {
-		std::cout << "Enter darkest_secret :" <<std::endl;
+		std::cout << "Enter darkest_secret : ";
 		std::getline(std::cin, darkest_secret);
 	} while (darkest_secret.empty());
 }
 
-std::string	Contact::getFirstName(void) const
+std::string&	Contact::getFirstName(void)
 {
-	return (&first_name);
+	return (first_name);
 }
 
-std::string	Contact::getLastName(void) const
+std::string&	Contact::getLastName(void)
 {
-	return (&last_name);
+	return (last_name);
 }
 
-std::string	Contact::getNickname (void) const
+std::string&	Contact::getNickname (void)
 {
-	return (&nickname);
+	return (nickname);
 }
 
-std::string	Contact::getPhoneNumber (void) const
+std::string&	Contact::getPhoneNumber (void)
 {
-	return (&phone_number);
+	return (phone_number);
 }
 
-std::string	Contact::getDarkestSecret (void) const
+std::string&	Contact::getDarkestSecret (void)
 {
-	return (&darkest_secret);
+	return (darkest_secret);
 }
