@@ -16,7 +16,6 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
-# include <vector>
 # include "Contact.hpp"
 
 class Phonebook {
@@ -31,7 +30,8 @@ public:
 private:
     void    searchSpecificContact(void);
     void    printInfoForSearch(std::string & to_print);
-    std::vector<Contact>    contacts;
+    int     getFirstEmptyContact(void);
+    Contact contacts[8];
 };
 
 #endif
