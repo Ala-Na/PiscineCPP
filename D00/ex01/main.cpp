@@ -52,7 +52,7 @@ void    displayMenu(void)
 	std::cout << "> ";
 }
 
-void    searchSpecificContact(const std::vector<Contact> & contacts, int & nbr_contacts_filled)
+void    searchSpecificContact(const std::vector<Contact> & contacts)
 {
     int     i_index;
 
@@ -61,11 +61,9 @@ void    searchSpecificContact(const std::vector<Contact> & contacts, int & nbr_c
         std::cin >> i_index;
 		std::cin.ignore();
         i_index -= 1;
-        if (i_index < 0 || i_index >= nbr_contacts_filled)
-        {
+        if (i_index < 0 || i_index >= contacts.size())
             std::cout << "Index is invalid or empty, please retry." << std::endl;
-        }
-    } while (i_index < 0 || i_index >= nbr_contacts_filled);
+    } while (i_index < 0 || i_index >= contacts.size());
 	std::cout << "First name: ";
     std::cout << contacts[i_index].getFirstName() << std::endl;
 	std::cout << "Last name: ";
@@ -100,12 +98,12 @@ void    searchContactMenu(const std::vector<Contact> & contacts)
         printInfoForSearch(contacts[index].getNickname());
 		std::cout << std::endl;
     }
-    searchSpecificContact(contacts, nbr_contacts_filled);
+    searchSpecificContact(contacts);
 }
 
-int	main()
+int main()
 {
-	std::vector<Contact> contacts;
+    std::vector<Contact> contacts;
 	std::string	input;
 
 	while (1)
