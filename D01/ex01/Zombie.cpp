@@ -7,7 +7,7 @@ Zombie::Zombie(void)
 
 Zombie::Zombie(std::string zombie_name) : name(zombie_name)
 {
-		return ;
+	return ;
 }
 
 Zombie::~Zombie(void)
@@ -19,4 +19,9 @@ void	Zombie::announce(void)
 {
 	std::cout << "<" << name << "> ";
 	std::cout << " BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName(std::string newname)
+{
+	name = newname;
 }
