@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:10:20 by anadege           #+#    #+#             */
-/*   Updated: 2021/11/07 18:17:39 by anadege          ###   ########.fr       */
+/*   Updated: 2021/11/18 21:20:41 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class	HumanA
 {
 public:
-	HumanA(std::string name_a, Weapon &weapon_a);
+	HumanA(std::string name_a, Weapon& weapon_a);
 	void	attack(void);
 
 private:

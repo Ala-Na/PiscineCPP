@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/18 20:48:15 by anadege           #+#    #+#             */
+/*   Updated: 2021/11/18 20:48:25 by anadege          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 int main()
 {
     std::cout << "Zombie invasion simulation beggin !\n" << std::endl;
-
 
     std::cout << "\nLet's make few zombies on the stack\n" << std::endl;
 
