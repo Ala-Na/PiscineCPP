@@ -30,6 +30,4 @@ private:
     static const int  fracBits = 8;
 };
 
-std::ostream    &operator<<(std::ostream & o, Fixed const & fixed);
-
 #endif

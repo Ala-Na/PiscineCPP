@@ -47,9 +47,3 @@ void    Fixed::setRawBits(int const raw)
     std::cout << "setRawBits member function called" << std::endl;
     this->value = raw;
 }
-
-std::ostream    &operator<<(std::ostream & o, Fixed const & fixed)
-{
-    o << fixed.getRawBits();
-    return o;
-}
