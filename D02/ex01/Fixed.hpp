@@ -19,17 +19,21 @@ class	Fixed
 {
 public:
     Fixed(void);
-    Fixed(Fixed const & src);
+    Fixed(const int value);
+    Fixed(const float value);
+    Fixed(Fixed const &src);
     ~Fixed(void);
-    Fixed & operator=(Fixed const & rhs);
-    int getRawBits(void) const;
+    Fixed   &operator=(Fixed const &rhs);
+    int     getRawBits(void) const;
     void    setRawBits(int const raw);
+    float   toFloat(void) const;
+    int     toInt(void) const;
 
 private:
     int value;
     static const int  fracBits = 8;
 };
 
-std::ostream &  operator<<(std::ostream & o, Fixed const & fixed);
+std::ostream &operator<<(std::ostream &o, Fixed const &fixed);
 
 #endif

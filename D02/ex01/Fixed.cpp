@@ -12,13 +12,26 @@
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <math.h>
 
 Fixed::Fixed(void) : value(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const & src)
+Fixed::Fixed(const int value)
+{
+    std::cout << "Int constructor called" << std::endl;
+    this->value = value << Fixed::fracBits;
+}
+
+Fixed::Fixed(const float value)
+{
+    std::cout << "Float constructor called" << std::endl;
+    this->value = (int)(std::round(value * (1 << Fixed::fracBits)));
+}
+
+Fixed::Fixed(Fixed const &src)
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = src;
@@ -29,14 +42,14 @@ Fixed::~Fixed(void)
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed &   Fixed::operator=(Fixed const & rhs)
+Fixed   &Fixed::operator=(Fixed const & rhs)
 {
     std::cout << "Assignation operator called" << std::endl;    
     this->value = rhs.getRawBits();
     return *this;
 }
 
-int Fixed::getRawBits(void) const
+int     Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
     return this->value;
@@ -46,10 +59,20 @@ void    Fixed::setRawBits(int const raw)
 {
     std::cout << "setRawBits member function called" << std::endl;
     this->value = raw;
+} 
+
+float   Fixed::toFloat(void) const
+{
+    return (float)this->value / (1 << Fixed::fracBits);
 }
 
-std::ostream &  operator<<(std::ostream & o, Fixed const & fixed)
+int     Fixed::toInt(void) const
 {
-    o << fixed.getRawBits();
+    return (int)(this->value >> Fixed::fracBits);
+}
+
+std::ostream &operator<<(std::ostream &o, Fixed const &fixed)
+{
+    o << fixed.toFloat();
     return o;
 }
