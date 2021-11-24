@@ -6,14 +6,14 @@
 #    By: anadege <anadege@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 17:40:15 by anadege           #+#    #+#              #
-#    Updated: 2021/11/06 17:34:45 by anadege          ###   ########.fr        #
+#    Updated: 2021/11/24 15:38:08 by anadege          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = string
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -MMD -I$(HEADER_DIR)
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -I$(HEADER_DIR)
 
 SRCS_DIR = .
 SRCS = main.cpp

@@ -6,14 +6,14 @@
 #    By: anadege <anadege@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 16:08:54 by anadege           #+#    #+#              #
-#    Updated: 2021/11/23 16:08:54 by anadege          ###   ########.fr        #
+#    Updated: 2021/11/24 16:01:49 by anadege          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = bsp
 
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -MMD -I$(HEADER_DIR)
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -I$(HEADER_DIR)
 
 SRCS_DIR = .
 SRCS = Fixed.cpp Point.cpp bsp.cpp main.cpp

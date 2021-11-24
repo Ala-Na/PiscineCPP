@@ -13,7 +13,7 @@
 NAME = fixed
 
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -MMD -I$(HEADER_DIR)
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -I$(HEADER_DIR)
 
 SRCS_DIR = .
 SRCS = Fixed.cpp main.cpp

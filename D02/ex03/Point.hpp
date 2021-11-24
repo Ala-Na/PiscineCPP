@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:52:38 by anadege           #+#    #+#             */
-/*   Updated: 2021/11/24 14:20:22 by anadege          ###   ########.fr       */
+/*   Updated: 2021/11/24 16:15:40 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,20 @@ class	Point
 {
 public:
     Point(void);
-    Point(Fixed const x, Fixed const y);
+    Point(Fixed const &x, Fixed const &y);
     Point(Point const &src);
     ~Point(void);
 
     Point   &operator=(Point const &other);
 
-    Fixed const &getX(void);
-    Fixed const &getY(void);
+    Fixed const   &getX(void) const;
+    Fixed const   &getY(void) const;
    
 private:
     Fixed const x;
     Fixed const y;
 };
+
+bool    bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif
