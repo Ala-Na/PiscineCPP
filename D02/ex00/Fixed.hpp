@@ -19,15 +19,15 @@ class	Fixed
 {
 public:
     Fixed(void);
-    Fixed(Fixed const & src);
+    Fixed(Fixed const &src);
     ~Fixed(void);
-    Fixed   &operator=(Fixed const & rhs);
+    Fixed   &operator=(Fixed const &rhs);
     int     getRawBits(void) const;
     void    setRawBits(int const raw);
 
 private:
-    int value;
-    static const int  fracBits = 8;
+    int                 value;
+    static const int    fracBits = 8;
 };
 
 #endif

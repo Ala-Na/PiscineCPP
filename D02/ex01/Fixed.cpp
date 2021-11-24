@@ -28,7 +28,7 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float value)
 {
     std::cout << "Float constructor called" << std::endl;
-    this->value = (int)(std::roundf(value * (1 << Fixed::fracBits)));
+    this->value = (int)(roundf(value * (1 << Fixed::fracBits)));
 }
 
 Fixed::Fixed(Fixed const &src)
@@ -42,7 +42,7 @@ Fixed::~Fixed(void)
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed   &Fixed::operator=(Fixed const & rhs)
+Fixed   &Fixed::operator=(Fixed const &rhs)
 {
     std::cout << "Assignation operator called" << std::endl;    
     this->value = rhs.getRawBits();

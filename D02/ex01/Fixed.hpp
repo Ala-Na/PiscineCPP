@@ -30,8 +30,8 @@ public:
     int     toInt(void) const;
 
 private:
-    int value;
-    static const int  fracBits = 8;
+    int                 value;
+    static const int    fracBits = 8;
 };
 
 std::ostream &operator<<(std::ostream &o, Fixed const &fixed);
