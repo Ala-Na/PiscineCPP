@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:52:43 by anadege           #+#    #+#             */
-/*   Updated: 2021/11/25 16:08:45 by anadege          ###   ########.fr       */
+/*   Updated: 2021/11/25 16:29:51 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,5 @@ bool    bsp(Point const a, Point const b, Point const c, Point const point)
         return false;
     Fixed compArea = areaSub1 + areaSub2 + areaSub3;
  
-    if (compArea == areaTriangle)
-        return true;
-    return false;
+    return compArea == areaTriangle;
 }

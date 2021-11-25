@@ -79,50 +79,32 @@ std::ostream &operator<<(std::ostream &o, Fixed const &fixed)
 
 bool    Fixed::operator==(const Fixed &other) const
 {
-    if (this->getRawBits() == other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() == other.getRawBits();
 }
 
 bool    Fixed::operator!=(const Fixed &other) const
 {
-    if (this->getRawBits() != other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() != other.getRawBits();
 }
 
 bool    Fixed::operator<(const Fixed &other) const
 {
-    if (this->getRawBits() < other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() < other.getRawBits();
 }
 
 bool    Fixed::operator>(const Fixed &other) const
 {
-    if (this->getRawBits() > other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() > other.getRawBits();
 }
 
 bool    Fixed::operator<=(const Fixed &other) const
 {
-    if (this->getRawBits() <= other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() <= other.getRawBits();
 }
 
 bool    Fixed::operator>=(const Fixed &other) const
 {
-    if (this->getRawBits() >= other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() >= other.getRawBits();
 }
 
 Fixed   Fixed::operator+(const Fixed &other) const

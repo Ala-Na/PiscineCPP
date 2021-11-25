@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 16:09:29 by anadege           #+#    #+#             */
-/*   Updated: 2021/11/25 16:00:32 by anadege          ###   ########.fr       */
+/*   Updated: 2021/11/25 16:38:21 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <cmath>
 
-Fixed::Fixed(void) : value(0) {;}
+Fixed::Fixed(void) : value(0) {}
 
 Fixed::Fixed(const int value)
 {
@@ -31,7 +31,7 @@ Fixed::Fixed(Fixed const &src)
     this->value = src.getRawBits();
 }
 
-Fixed::~Fixed(void) {;}
+Fixed::~Fixed(void) {}
 
 Fixed   &Fixed::operator=(Fixed const &other)
 {  
@@ -67,50 +67,32 @@ std::ostream &operator<<(std::ostream &o, Fixed const &fixed)
 
 bool    Fixed::operator==(const Fixed &other) const
 {
-    if (this->getRawBits() == other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() == other.getRawBits();
 }
 
 bool    Fixed::operator!=(const Fixed &other) const
 {
-    if (this->getRawBits() != other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() != other.getRawBits();
 }
 
 bool    Fixed::operator<(const Fixed &other) const
 {
-    if (this->getRawBits() < other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() < other.getRawBits();
 }
 
 bool    Fixed::operator>(const Fixed &other) const
 {
-    if (this->getRawBits() > other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() > other.getRawBits();
 }
 
 bool    Fixed::operator<=(const Fixed &other) const
 {
-    if (this->getRawBits() <= other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() <= other.getRawBits();
 }
 
 bool    Fixed::operator>=(const Fixed &other) const
 {
-    if (this->getRawBits() >= other.getRawBits()) {
-        return true;
-    }
-    return false;
+    return this->getRawBits() >= other.getRawBits();
 }
 
 Fixed   Fixed::operator+(const Fixed &other) const
