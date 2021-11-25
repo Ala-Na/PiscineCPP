@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 16:09:27 by anadege           #+#    #+#             */
-/*   Updated: 2021/11/24 14:08:18 by anadege          ###   ########.fr       */
+/*   Updated: 2021/11/25 16:00:17 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define __FIXED_H__
 
 #include <iostream>
+#include <cmath>
 
 class	Fixed
 {

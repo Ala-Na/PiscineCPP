@@ -14,6 +14,7 @@
 # define __FIXED_H__
 
 #include <iostream>
+#include <cmath>
 
 class	Fixed
 {

@@ -12,7 +12,7 @@
 
 #include "Fixed.hpp"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 Fixed::Fixed(void) : value(0)
 {

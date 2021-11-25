@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 16:09:29 by anadege           #+#    #+#             */
-/*   Updated: 2021/11/24 14:08:19 by anadege          ###   ########.fr       */
+/*   Updated: 2021/11/25 16:00:32 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 #include <iostream>
 #include <cmath>
 
-Fixed::Fixed(void) : value(0)
-{
-}
+Fixed::Fixed(void) : value(0) {;}
 
 Fixed::Fixed(const int value)
 {
@@ -25,7 +23,7 @@ Fixed::Fixed(const int value)
 
 Fixed::Fixed(const float value)
 {
-    this->value = (int)(std::roundf(value * (1 << Fixed::fracBits)));
+    this->value = (int)(roundf(value * (1 << Fixed::fracBits)));
 }
 
 Fixed::Fixed(Fixed const &src)
@@ -33,9 +31,7 @@ Fixed::Fixed(Fixed const &src)
     this->value = src.getRawBits();
 }
 
-Fixed::~Fixed(void)
-{
-}
+Fixed::~Fixed(void) {;}
 
 Fixed   &Fixed::operator=(Fixed const &other)
 {  
