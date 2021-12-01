@@ -18,6 +18,8 @@
 int main()
 {
     ScavTrap sp1;
+    std::cout << sp1.getName() << std::endl;
+    
     ScavTrap sp2("SCV-4RT");
     ScavTrap sp3(sp2);
     sp1 = sp2;

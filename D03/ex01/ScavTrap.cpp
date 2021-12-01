@@ -15,11 +15,9 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap()
+ScavTrap::ScavTrap(void) : ClapTrap("ScavTrap")
 {
     std::cout << "ScavTrap default constructor called (name initialized at ScavTrap)" << std::endl;
-    std::string name = "ScavTrap";
-    this->name = name;
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 20;
@@ -28,7 +26,6 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     std::cout << "ScavTrap constructor called" << std::endl;
-    this->name = name;
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 20;
@@ -37,10 +34,10 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src)
 {
     std::cout << "ScavTrap copy constructor called" << std::endl;
-    this->name = src.name;
-    this->hitPoints = src.hitPoints;
-    this->energyPoints = src.energyPoints;
-    this->attackDamage = src.attackDamage;
+    this->name = src.getName();
+    this->hitPoints = src.getHitPoints();
+    this->energyPoints = src.getEnergyPoints();
+    this->attackDamage = src.getAttackDamage();
 }
 
 ScavTrap::~ScavTrap(void)
@@ -50,14 +47,22 @@ ScavTrap::~ScavTrap(void)
 
 ScavTrap  &ScavTrap::operator=(ScavTrap const &other)
 {
-    this->name = other.name;
-    this->hitPoints = other.hitPoints;
-    this->energyPoints = other.energyPoints;
-    this->attackDamage = other.attackDamage;
+    this->name = other.getName();
+    this->hitPoints = other.getHitPoints();
+    this->energyPoints = other.getEnergyPoints();
+    this->attackDamage = other.getAttackDamage();
     return *this;
+}
+
+void    ScavTrap::attack(std::string const &target)
+{
+    std::cout << "ScavTrap " << this->getName();
+    std::cout << " attack " << target;
+    std::cout << ", causing " << this->getAttackDamage();
+    std::cout << " points of damage !" << std::endl;
 }
 
 void    ScavTrap::guardGate(void)
 {
-    std::cout << this->name << "have enterred in Gate Keeper mode." << std::endl;
+    std::cout << this->name << " is now in Gate Keeper's mode." << std::endl;
 }

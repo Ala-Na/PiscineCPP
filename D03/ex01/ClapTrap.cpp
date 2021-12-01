@@ -14,17 +14,14 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap(void) : name("ClapTrap"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     std::cout << "ClapTrap default constructor called (name initialized at ClapTrap)" << std::endl;
-    std::string name = "ClapTrap";
-    this->name = name;
 }
 
-ClapTrap::ClapTrap(std::string name) : hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     std::cout << "ClapTrap constructor called" << std::endl;
-    this->name = name;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src)
@@ -88,7 +85,7 @@ void    ClapTrap::takeDamage(unsigned int amount)
     int damage = (int)this->getHitPoints() - (int)amount;
     if (damage < 0)
         damage = 0;
-    std::cout << "ClapTrap "  << this->getName();
+    std::cout << this->getName();
     std::cout << " take " << amount << " damage !" << std::endl;
     this->setHitPoints(damage);
     std::cout << "Hit points left: ";
@@ -97,7 +94,7 @@ void    ClapTrap::takeDamage(unsigned int amount)
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-    std::cout << "ClapTrap "  << this->name;
+    std::cout << this->name;
     std::cout << " is repaired for " << amount << " hit points !" << std::endl;
     this->setHitPoints(this->hitPoints + amount);
     std::cout << "Hit points left: ";

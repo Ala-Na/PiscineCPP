@@ -14,17 +14,14 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap(void) : name("ClapTrap"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     std::cout << "Default constructor called (name initialized at ClapTrap)" << std::endl;
-    std::string name = "ClapTrap";
-    this->name = name;
 }
 
-ClapTrap::ClapTrap(std::string name) : hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     std::cout << "Constructor called" << std::endl;
-    this->name = name;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src)
