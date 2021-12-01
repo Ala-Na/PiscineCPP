@@ -33,6 +33,7 @@ int main()
     dt1.beRepaired(10);
     dt1.takeDamage(10);
     dt1.takeDamage(100);
+    std::cout << "Energy points : " << dt1.getEnergyPoints() << std::endl;
     dt1.highFivesGuys();
     dt1.guardGate();
 }

@@ -17,7 +17,7 @@
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(void)
 {
     std::cout << "DiamondTrap default constructor called (name set at DiamondTrap)" << std::endl;
     this->ClapTrap::name = "DiamondTrap_clap_name";
@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
     this->attackDamage = FragTrap::getAttackDamage();
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(std::string name)
 {
     std::cout << "DiamonTrap constructor called" << std::endl;
     this->ClapTrap::name = name + "_clap_name";
@@ -40,11 +40,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(), ScavTrap(), FragTrap()
 DiamondTrap::DiamondTrap(DiamondTrap const &src) : ClapTrap(), ScavTrap(), FragTrap()
 {
     std::cout << "DiamondTrap copy constructor called" << std::endl;
-    this->ClapTrap::name = src.getDiamondName() + "_clap_name";
-    this->name = src.getDiamondName();
-    this->hitPoints = src.getHitPoints();
-    this->energyPoints = src.getEnergyPoints();
-    this->attackDamage = src.getAttackDamage();
+    *this = src;
 }
 
 DiamondTrap  &DiamondTrap::operator=(DiamondTrap const &other)

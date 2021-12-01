@@ -33,4 +33,5 @@ int main()
     sp1.takeDamage(10);
     sp1.takeDamage(100);
     sp1.guardGate();
+    std::cout << "Energy points : " << sp1.getEnergyPoints() << std::endl;
 }

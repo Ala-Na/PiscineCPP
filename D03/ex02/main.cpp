@@ -33,4 +33,5 @@ int main()
     ft1.takeDamage(10);
     ft1.takeDamage(100);
     ft1.highFivesGuys();
+    std::cout << "Energy points : " << ft1.getEnergyPoints() << std::endl;
 }
