@@ -27,10 +27,7 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 ClapTrap::ClapTrap(ClapTrap const &src)
 {
     std::cout << "Copy constructor called" << std::endl;
-    this->name = src.getName();
-    this->hitPoints = src.getHitPoints();
-    this->energyPoints = src.getEnergyPoints();
-    this->attackDamage = src.getAttackDamage();
+    *this = src;
 }
 
 ClapTrap::~ClapTrap(void)

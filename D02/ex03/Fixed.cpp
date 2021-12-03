@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 16:09:29 by anadege           #+#    #+#             */
-/*   Updated: 2021/11/25 16:38:21 by anadege          ###   ########.fr       */
+/*   Updated: 2021/11/26 14:44:29 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,8 @@ Fixed   Fixed::operator++(int)
 {
     Fixed   res;
 
-    res.setRawBits(this->value + 1);
+    res = *this;
+    this->setRawBits(this->value + 1);
     return res;
 }
 
@@ -151,7 +152,8 @@ Fixed   Fixed::operator--(int)
 {
     Fixed   res;
 
-    res.setRawBits(this->value - 1);
+    res = *this;
+    this->setRawBits(this->value - 1);
     return res;
 }
 

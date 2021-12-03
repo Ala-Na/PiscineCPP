@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 20:20:34 by anadege           #+#    #+#             */
-/*   Updated: 2021/11/30 20:20:34 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/03 14:46:29 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src)
 {
     std::cout << "ScavTrap copy constructor called" << std::endl;
-    this->name = src.getName();
-    this->hitPoints = src.getHitPoints();
-    this->energyPoints = src.getEnergyPoints();
-    this->attackDamage = src.getAttackDamage();
+    *this = src;
 }
 
 ScavTrap::~ScavTrap(void)

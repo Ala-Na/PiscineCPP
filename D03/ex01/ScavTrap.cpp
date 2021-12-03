@@ -31,13 +31,10 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     this->attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src)
+ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap()
 {
     std::cout << "ScavTrap copy constructor called" << std::endl;
-    this->name = src.getName();
-    this->hitPoints = src.getHitPoints();
-    this->energyPoints = src.getEnergyPoints();
-    this->attackDamage = src.getAttackDamage();
+    *this = src;
 }
 
 ScavTrap::~ScavTrap(void)
