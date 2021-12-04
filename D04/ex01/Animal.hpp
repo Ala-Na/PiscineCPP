@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:25:55 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/04 21:42:07 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/04 23:14:21 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define __ANIMAL_H__
 
 #include <string>
+#include "Brain.hpp"
 
 class Animal
 {
@@ -42,6 +43,10 @@ class Dog : public Animal
         Dog &operator=(Dog const &other);
 
         void    makeSound(void) const;
+        virtual Brain   *getBrain(void) const;
+
+    private:
+        Brain *brain;
 };
 
 class Cat : public Animal
@@ -54,6 +59,10 @@ class Cat : public Animal
         Cat &operator=(Cat const &other);
 
         void    makeSound(void) const;
+        virtual Brain   *getBrain(void) const;
+    
+    private:
+        Brain  *brain;
 };
 
 #endif

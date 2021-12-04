@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:25:30 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/04 21:31:07 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/04 21:44:34 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,14 @@ int main()
     ibis->makeSound(); //will output the WrongAnimal sound!
     jbis->makeSound();
     metabis->makeSound();
+
+    std::cout << "\n--- CLEAR MEMORY ---\n" << std::endl;
+    delete meta;
+    delete i;
+    delete j;
+    delete metabis;
+    delete ibis;
+    delete jbis;
+
+    return 0;
 }
