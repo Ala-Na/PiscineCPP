@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:40:13 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 09:37:21 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 14:12:23 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ Dog::Dog(void) : Animal()
 
 Dog::Dog(Dog const &src) : Animal()
 {
-    *this = src;
+    this->type = src.getType();
+    this->brain = new Brain(*(src.getBrain()));
     std::cout << "Dog copy constructor called" << std::endl;
 }
 
@@ -112,7 +113,8 @@ Cat::Cat(void) : Animal()
 
 Cat::Cat(Cat const &src) : Animal()
 {
-    *this = src;
+    this->type = src.getType();
+    this->brain = new Brain(*(src.getBrain()));
     std::cout << "Cat copy constructor called" << std::endl;
 }
 

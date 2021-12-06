@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:05:36 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 11:18:24 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 14:06:43 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <string>
 #include "Materia.hpp"
 
-class IMateriaSource //PURE ABSTRACT CLASS = INTERFACE
+class IMateriaSource // PURE ABSTRACT CLASS = INTERFACE
 {
     public:
         virtual             ~IMateriaSource(void);

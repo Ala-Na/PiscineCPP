@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:10:01 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 12:00:06 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 14:33:56 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ MateriaSource::MateriaSource(MateriaSource const &src)
 MateriaSource::~MateriaSource(void)
 {
     for (int i = 0; i < 4; i++)
-    {
         delete this->materia[i];
-        this->materia[i] = NULL;
-    }
 }
 
 MateriaSource   &MateriaSource::operator=(MateriaSource const &other)
@@ -47,7 +44,7 @@ MateriaSource   &MateriaSource::operator=(MateriaSource const &other)
     {
         if (this->getMateria(i))
             delete this->materia[i];
-        if (other.getMateria[i])
+        if (other.getMateria(i))
             this->materia[i] = other.getMateria(i)->clone();
         else
             this->materia[i] = NULL;
@@ -68,4 +65,24 @@ void    MateriaSource::learnMateria(AMateria *materia)
     std::cout << "Source is already full" <<std::endl;
 }
 
-AMateria    *MateriaSource::createMateria
+AMateria    *MateriaSource::createMateria(std::string const &type)
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (!this->getMateria(i))
+        {
+            this->materia[i] = new AMateria(type);
+            std::cout << "New materia of type " << type << " learned by Source" << std::endl;
+            return materia[i];
+        }
+    }
+    std::cout << "Source is already full" <<std::endl;
+    return NULL;    
+}
+
+AMateria const  &MateriaSource::getMateria(int idx) const
+{
+    if (idx >= 0 && idx < 4)
+        return this->materia[idx];
+    return NULL;
+}

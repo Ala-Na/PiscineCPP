@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:33:37 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 10:34:27 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 14:33:24 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string>
 #include "Character.hpp"
 #include "Materia.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
