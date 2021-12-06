@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:05:36 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 14:06:43 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 18:26:07 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class MateriaSource : public IMateriaSource
         
         void            learnMateria(AMateria*) = 0;
         AMateria        *createMateria(std::string const &type) = 0;
-        AMateria const  &getMateria(int idx) const;
+        AMateria        getMateria(int idx) const;
 
     protected:
         AMateria    *materia[4];

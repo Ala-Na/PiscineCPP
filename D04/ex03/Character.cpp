@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 14:02:08 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 14:40:00 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 18:14:50 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ Character::~Character(void)
 
 Character   &Character::operator=(Character const &other)
 {
-    this->name = (std::string)other.getName();
     for (int i = 0; i < 4; i++)
     {
         if (this->accessMateria(i))
@@ -87,12 +86,12 @@ void    Character::equip(AMateria *m)
 
 void    Character::unequip(int idx)
 {
-    delete this->materia[i];
-    this->materia[i] = NULL;
+    delete this->materia[idx];
+    this->materia[idx] = NULL;
     std::cout << "A materia was retriev from " << this->name << "'s inventory" << std::endl;
 }
 
 void    Character::use(int idx, ICharacter  &target)
 {
-    this->materia[i]->use();
+    this->materia[idx]->use(target);
 }

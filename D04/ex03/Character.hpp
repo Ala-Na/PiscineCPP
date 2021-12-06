@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:24:30 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 14:38:16 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 18:15:26 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <string>
 #include "Materia.hpp"
+
+class AMateria;
 
 class ICharacter // INTERFACE
 {

@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 09:52:32 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 14:37:23 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 18:18:44 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ class Ice : public AMateria
         Ice(Ice const &src);
         ~Ice (void);
         
-        void    use(ICharacter &target);    
+        void    use(ICharacter &target);
+        Ice     *clone(void) const;    
 };
 
 class Cure : public AMateria
@@ -53,7 +54,8 @@ class Cure : public AMateria
         Cure(Cure const &src);
         ~Cure (void);
 
-        void    use(ICharacter &target);      
+        void    use(ICharacter &target);
+        Cure    *clone(void) const;      
 };
 
 #endif
