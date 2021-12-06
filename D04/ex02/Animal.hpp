@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:25:55 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 09:24:41 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/06 09:48:15 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ class Animal
         Animal(void);
         Animal(std::string type);
         Animal(Animal const &src);
-        virtual ~Animal(void);
+        virtual ~Animal(void) = 0;
         
         Animal  &operator=(Animal const &other);
 
         std::string     getType(void) const;
-        virtual void    makeSound(void) const;
+        virtual void    makeSound(void) const = 0;
     
     protected:
         std::string type;
