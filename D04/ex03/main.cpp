@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:33:37 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/07 13:52:44 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/07 15:33:42 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,17 @@ int main()
     std::cout << "\n--- TESTS FOR CHARACTERS ---\n" << std::endl;
 
     ICharacter* me = new Character("me");
+    Character* jdoe = new Character();
+
+    std::cout << "Character " << me->getName() << " created" << std::endl;
+    std::cout << "Character " << jdoe->getName() << " created" << std::endl;    
     
+    delete jdoe;
+    *jdoe = *((Character *)me);
+
+    std::cout << "Character " << me->getName() << " created" << std::endl;
+    std::cout << "Character " << jdoe->getName() << " created" << std::endl;    
+
     AMateria* tmp;
     tmp = src->createMateria("ice");
     me->equip(tmp);
