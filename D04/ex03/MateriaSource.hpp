@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:05:36 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 18:26:07 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/07 12:28:25 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class IMateriaSource // PURE ABSTRACT CLASS = INTERFACE
 {
     public:
-        virtual             ~IMateriaSource(void);
+        virtual             ~IMateriaSource(void) {}
         virtual void        learnMateria(AMateria*) = 0;
         virtual AMateria    *createMateria(std::string const &type) = 0;
 };
@@ -33,9 +33,9 @@ class MateriaSource : public IMateriaSource
 
         MateriaSource &operator=(MateriaSource const &other);
         
-        void            learnMateria(AMateria*) = 0;
-        AMateria        *createMateria(std::string const &type) = 0;
-        AMateria        getMateria(int idx) const;
+        void            learnMateria(AMateria*);
+        AMateria        *createMateria(std::string const &type);
+        AMateria        *getMateria(int idx) const;
 
     protected:
         AMateria    *materia[4];

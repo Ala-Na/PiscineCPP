@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:10:01 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 18:32:52 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/07 13:23:03 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,21 @@ MateriaSource::MateriaSource(void)
 MateriaSource::MateriaSource(MateriaSource const &src)
 {
     for (int i = 0; i < 4; i++)
-        *(this->materia[i]) = src.getMateria(i);
+    {
+        if (src.getMateria(i) != NULL)
+            this->materia[i] = src.getMateria(i)->clone();
+        else
+            this->materia[i] =NULL;
+    }
 }
 
 MateriaSource::~MateriaSource(void)
 {
     for (int i = 0; i < 4; i++)
-        delete this->materia[i];
+    {
+        if (this->getMateria(i) != NULL)
+            delete this->materia[i];
+    }
 }
 
 MateriaSource   &MateriaSource::operator=(MateriaSource const &other)
@@ -44,11 +52,12 @@ MateriaSource   &MateriaSource::operator=(MateriaSource const &other)
     {
         if (this->getMateria(i) != NULL)
             delete this->materia[i];
-        if (*(other.getMateria(i)) != NULL)
-            *(this->materia[i]) = other.getMateria(i)->clone();
+        if (other.getMateria(i) != NULL)
+            this->materia[i] = other.getMateria(i)->clone();
         else
-            *(this->materia[i]) = NULL;
+            this->materia[i] = NULL;
     }
+    return *this;
 }
 
 void    MateriaSource::learnMateria(AMateria *materia)
@@ -57,8 +66,8 @@ void    MateriaSource::learnMateria(AMateria *materia)
     {
         if (this->getMateria(i) == NULL)
         {
-            *(this->materia[i]) = materia;
-            std::cout << "New materia learned by Source" << std::endl;
+            this->materia[i] = materia;
+            std::cout << "New materia of type " << materia->getType() << " learned by Source" << std::endl;
             return ;
         }
     }
@@ -69,20 +78,23 @@ AMateria    *MateriaSource::createMateria(std::string const &type)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (!this->getMateria(i))
+        if (this->getMateria(i) != NULL && this->getMateria(i)->getType() == type)
         {
-            *(this->materia[i]) = new AMateria(type);
-            std::cout << "New materia of type " << type << " learned by Source" << std::endl;
-            return materia[i];
+            std::cout << "New materia of type " << type << " created by Source" << std::endl;
+            return this->materia[i]->clone();
         }
     }
-    std::cout << "Source is already full" <<std::endl;
+    std::cout << "Source don't possess a version of " << type << " materia and can't replicate it." <<std::endl;
     return NULL;    
 }
 
-AMateria const  &MateriaSource::getMateria(int idx) const
+AMateria    *MateriaSource::getMateria(int idx) const
 {
     if (idx >= 0 && idx < 4)
+    {
+        if (this->materia[idx] == NULL)
+            return NULL;
         return this->materia[idx];
+    }
     return NULL;
 }

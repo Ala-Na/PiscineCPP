@@ -13,7 +13,7 @@
 NAME = interface
 
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -I$(HEADER_DIR)
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g -I$(HEADER_DIR)
 
 SRCS_DIR = .
 SRCS = Character.cpp Materia.cpp MateriaSource.cpp main.cpp
