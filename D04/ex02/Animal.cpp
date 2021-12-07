@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:40:13 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 14:12:23 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/07 18:48:23 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,6 @@ Animal  &Animal::operator=(Animal const &other)
 std::string Animal::getType(void) const
 {
     return this->type;
-}
-
-void  Animal::makeSound(void) const
-{
-    std::cout << "No sound is made by animal of type " << this->getType() << std::endl;
 }
 
 /////////

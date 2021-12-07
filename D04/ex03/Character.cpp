@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 14:02:08 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/07 15:39:34 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/07 18:18:56 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,12 @@ Character   &Character::operator=(Character const &other)
 
 AMateria    *Character::accessMateria(int idx) const
 {
-    if (idx >= 0 && idx < 4 && this->materia[idx] != NULL)
+    if (idx >= 0 && idx < 4)
+    {
+        if (this->materia[idx] == NULL)
+            return NULL;
         return this->materia[idx];
+    }
     return NULL;
 }
 
@@ -93,7 +97,6 @@ void    Character::unequip(int idx)
 {
     if (this->materia[idx])
     {
-        delete this->materia[idx];
         this->materia[idx] = NULL;
         std::cout << "A materia was retrieve from " << this->name << "'s inventory" << std::endl;
     }
@@ -103,5 +106,8 @@ void    Character::unequip(int idx)
 
 void    Character::use(int idx, ICharacter  &target)
 {
-    this->materia[idx]->use(target);
+    if (this->accessMateria(idx) != NULL)
+        this->materia[idx]->use(target);
+    else
+        std::cout << "Nothing to use in that slot" << std::endl;
 }

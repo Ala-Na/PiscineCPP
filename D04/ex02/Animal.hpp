@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:25:55 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/06 09:48:15 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/07 18:36:38 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Animal
         Animal  &operator=(Animal const &other);
 
         std::string     getType(void) const;
-        virtual void    makeSound(void) const = 0;
+        virtual void    makeSound(void) const = 0; // here is the modification making Animal non instanciable
     
     protected:
         std::string type;

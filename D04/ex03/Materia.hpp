@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 09:52:32 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/07 13:41:55 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/07 18:13:13 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class AMateria
         AMateria &operator=(AMateria const &other);
 
         std::string const &getType(void) const;
-        virtual AMateria* clone(void) const = 0;
+        virtual AMateria *clone(void) const = 0;
         virtual void use(ICharacter &target);
 };
 

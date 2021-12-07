@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:10:01 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/07 13:23:03 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/07 18:30:43 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ AMateria    *MateriaSource::createMateria(std::string const &type)
         }
     }
     std::cout << "Source don't possess a version of " << type << " materia and can't replicate it." <<std::endl;
-    return NULL;    
+    return NULL; // NULL = 0 (just more explicit)
 }
 
 AMateria    *MateriaSource::getMateria(int idx) const
