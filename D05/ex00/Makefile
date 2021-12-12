@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fragtrap
+NAME = bureaucrat
 
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -I$(HEADER_DIR)
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g -I$(HEADER_DIR)
 
 SRCS_DIR = .
-SRCS = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
+SRCS = Bureaucrat.cpp main.cpp
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 OBJS_DIR = .objs
