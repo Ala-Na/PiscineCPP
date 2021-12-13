@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -21,57 +25,126 @@ int main()
     std::cout << jdoe << std::endl;
     Bureaucrat georges("Georges Mickael", 5);
     std::cout << georges << std::endl;
+    Form *ptr;
 
     std::cout << "\n--- Form number 1 ---\n" << std::endl;
     try {
-        Form form("Lunch menus approval", 0, 5);
+        ptr = new PresidentialPardonForm();
+        std::cout << *ptr << std::endl;
+        jdoe.signForm(*ptr);
+        ptr->execute(jdoe);
+        delete ptr;
     }
     catch (std::exception &e) {
+        delete ptr;
         std::cerr << e.what() << std::endl;
     }
 
     std::cout << "\n--- Form number 2 ---\n" << std::endl;
     try {
-        Form form("Lunch menus approval", 5, 205);
+        ptr = new PresidentialPardonForm();
+        std::cout << *ptr << std::endl;
+        georges.signForm(*ptr);
+        ptr->execute(jdoe);
+        delete ptr;
     }
     catch (std::exception &e) {
+        delete ptr;
         std::cerr << e.what() << std::endl;
-    }     
+    }
 
-    Form form("lunch menus approval", 5, 100);
     std::cout << "\n--- Form number 3 ---\n" << std::endl;
     try {
-        georges.signForm(form);
+        ptr = new PresidentialPardonForm();
+        std::cout << *ptr << std::endl;
+        georges.signForm(*ptr);
+        ptr->execute(georges);
+        delete ptr;
     }
     catch (std::exception &e) {
+        delete ptr;
         std::cerr << e.what() << std::endl;
-    } 
+    }
 
     std::cout << "\n--- Form number 4 ---\n" << std::endl;
     try {
-        jdoe.signForm(form);
+        ptr = new RobotomyRequestForm();
+        std::cout << *ptr << std::endl;
+        jdoe.signForm(*ptr);
+        ptr->execute(jdoe);
+        delete ptr;
     }
     catch (std::exception &e) {
+        delete ptr;
         std::cerr << e.what() << std::endl;
-    } 
+    }
 
     std::cout << "\n--- Form number 5 ---\n" << std::endl;
     try {
-        Form copy;
-        std::cout << copy << std::endl;
-        copy = form;
-        std::cout << copy << std::endl;
+        ptr = new RobotomyRequestForm();
+        std::cout << *ptr << std::endl;
+        georges.signForm(*ptr);
+        ptr->execute(jdoe);
+        delete ptr;
     }
     catch (std::exception &e) {
+        delete ptr;
         std::cerr << e.what() << std::endl;
-    } 
+    }
 
     std::cout << "\n--- Form number 6 ---\n" << std::endl;
     try {
-        Form copy(form);
-        std::cout << copy << std::endl;
+        ptr = new RobotomyRequestForm();
+        std::cout << *ptr << std::endl;
+        georges.signForm(*ptr);
+        ptr->execute(georges);
+        ptr->execute(georges);
+        ptr->execute(georges);
+        ptr->execute(georges);
+        delete ptr;
     }
     catch (std::exception &e) {
+        delete ptr;
         std::cerr << e.what() << std::endl;
-    } 
+    }
+
+    std::cout << "\n--- Form number 7 ---\n" << std::endl;
+    try {
+        ptr = new ShrubberyCreationForm();
+        std::cout << *ptr << std::endl;
+        jdoe.signForm(*ptr);
+        ptr->execute(jdoe);
+        delete ptr;
+    }
+    catch (std::exception &e) {
+        delete ptr;
+        std::cerr << e.what() << std::endl;
+    }
+
+    std::cout << "\n--- Form number 8 ---\n" << std::endl;
+    try {
+        ptr = new ShrubberyCreationForm();
+        std::cout << *ptr << std::endl;
+        georges.signForm(*ptr);
+        ptr->execute(jdoe);
+        delete ptr;
+    }
+    catch (std::exception &e) {
+        delete ptr;
+        std::cerr << e.what() << std::endl;
+    }
+
+    std::cout << "\n--- Form number 9 ---\n" << std::endl;
+    try {
+        ptr = new ShrubberyCreationForm();
+        std::cout << *ptr << std::endl;
+        georges.signForm(*ptr);
+        ptr->execute(georges);
+        delete ptr;
+    }
+    catch (std::exception &e) {
+        delete ptr;
+        std::cerr << e.what() << std::endl;
+    }
+
 }

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 12:21:57 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/13 14:23:30 by anadege          ###   ########.fr       */
+/*   Created: 2021/12/13 13:52:08 by anadege           #+#    #+#             */
+/*   Updated: 2021/12/13 14:24:55 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ROBOTOMYREQUESTFORM_HPP__
-#define __ROBOTOMYREQUESTFORM_HPP__
+#ifndef __PRESIDENTIALPARDONFORM_HPP__
+#define __PRESIDENTIALPARDONFORM_HPP__
 
 #include "Form.hpp"
 
-class RobotomyRequestForm : public Form
+class PresidentialPardonForm : public Form
 {
     public:
-        RobotomyRequestForm(void);
-        RobotomyRequestForm(RobotomyRequestForm const &src);
-        ~RobotomyRequestForm(void);
+        PresidentialPardonForm(void);
+        PresidentialPardonForm(PresidentialPardonForm const &src);
+        ~PresidentialPardonForm(void);
         
-        RobotomyRequestForm &operator=(RobotomyRequestForm const &other);
+        PresidentialPardonForm &operator=(PresidentialPardonForm const &other);
 
-        void    action(std::string &target)const;
+        void    action(std::string &target) const;
         virtual void    execute(Bureaucrat const &executor) const;
 };
 

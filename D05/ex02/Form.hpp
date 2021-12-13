@@ -33,6 +33,7 @@ class Form
         bool const          &getState(void) const;
 
         void    beSigned(Bureaucrat const &bureaucrat);
+        virtual void    execute(Bureaucrat const &executor) const = 0;
 
         class   GradeTooHighException : public std::exception {
             public:
@@ -42,7 +43,7 @@ class Form
             public:
                 virtual const char  *what(void) const throw();
         };
-        class   UnsignedForm : public std::exception {
+        class   UnsignedFormException : public std::exception {
             public:
                 virtual const char  *what(void) const throw();
         };

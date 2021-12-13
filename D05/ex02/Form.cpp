@@ -14,7 +14,7 @@
 
 Form::Form(void) : name("random form"), isSigned(false), signGrade(150), execGrade(150) {}
 
-Form::Form(std::string name, int signGrade, int execGrade) : name(name), signGrade(signGrade), execGrade(execGrade)
+Form::Form(std::string name, int signGrade, int execGrade) : name(name), isSigned(false), signGrade(signGrade), execGrade(execGrade)
 {
     if (this->signGrade < 1 || this->execGrade < 1)
         throw GradeTooHighException();
@@ -75,7 +75,7 @@ const char  *Form::GradeTooLowException::what(void) const throw()
     return "Form : Grade Too Low !";
 }
 
-const char  *Form::UnsignedForm::what(void) const throw()
+const char  *Form::UnsignedFormException::what(void) const throw()
 {
     return "Form : Unsigned Form !";
 }
