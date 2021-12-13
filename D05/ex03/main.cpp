@@ -21,11 +21,7 @@
 
 int main()
 {
-    Bureaucrat jdoe;
-    std::cout << jdoe << std::endl;
-    Bureaucrat georges("Georges Mickael", 5);
-    std::cout << georges << std::endl;
-    Form *ptr;
+
 
     std::cout << "\n--- Form number 1 ---\n" << std::endl;
     try {
@@ -66,85 +62,5 @@ int main()
         std::cerr << e.what() << std::endl;
     }
 
-    std::cout << "\n--- Form number 4 ---\n" << std::endl;
-    try {
-        ptr = new RobotomyRequestForm();
-        std::cout << *ptr << std::endl;
-        jdoe.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
-
-    std::cout << "\n--- Form number 5 ---\n" << std::endl;
-    try {
-        ptr = new RobotomyRequestForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
-
-    std::cout << "\n--- Form number 6 ---\n" << std::endl;
-    try {
-        ptr = new RobotomyRequestForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(georges);
-        ptr->execute(georges);
-        ptr->execute(georges);
-        ptr->execute(georges);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
-
-    std::cout << "\n--- Form number 7 ---\n" << std::endl;
-    try {
-        ptr = new ShrubberyCreationForm();
-        std::cout << *ptr << std::endl;
-        jdoe.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
-
-    std::cout << "\n--- Form number 8 ---\n" << std::endl;
-    try {
-        ptr = new ShrubberyCreationForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
-
-    std::cout << "\n--- Form number 9 ---\n" << std::endl;
-    try {
-        ptr = new ShrubberyCreationForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(georges);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
 
 }

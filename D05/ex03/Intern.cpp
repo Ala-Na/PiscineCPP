@@ -1,15 +1,22 @@
 #include "Intern.hpp"
 #include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <string>
 
 Intern::Intern(void) {}
 
-Intern::Intern(Intern const &src) {}
+Intern::Intern(Intern const &src) 
+{
+    (void)src;
+}
 
 Intern::~Intern(void) {}
 
 Intern  &Intern::operator=(Intern const &other)
 {
+    (void)other;
     return *this;
 }
 
@@ -30,14 +37,14 @@ Form    *Intern::makeForm(std::string &type, std::string &target)
         {
             case 0:
                 std::cout << "Intern create presidential pardon form" << std::endl;
-                return(new PresidentialPardonForm());
+                return(new PresidentialPardonForm(target));
             case 1:
                 std::cout << "Intern create robotomy request form" << std::endl;
-                return(new RobotomyRequestForm());
+                return(new RobotomyRequestForm(target));
             case 2:
                 std::cout << "Intern create shrubbery creation form" << std::endl;
-                return(new ShrubberyCreationForm());
-            case default :
+                return(new ShrubberyCreationForm(target));
+            default :
                 throw FormDoesntExistsException();
         } 
     }
