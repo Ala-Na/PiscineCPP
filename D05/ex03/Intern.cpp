@@ -20,30 +20,34 @@ Intern  &Intern::operator=(Intern const &other)
     return *this;
 }
 
-Form    *Intern::makeForm(std::string &type, std::string &target)
+Form    *Intern::makeForm(const char *type, const char *target)
 {
     
     std::string const   forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
+    std::string type_string;
+    std::string target_string;
     int                 i;
 
+    type_string = type;
+    target_string = target;
     try
     {
         for (i = 0; i < 3; i++)
         {
-            if (type == forms[i])
+            if (type_string == forms[i])
                 break;
         }
         switch(i)
         {
             case 0:
-                std::cout << "Intern create presidential pardon form" << std::endl;
-                return(new PresidentialPardonForm(target));
+                std::cout << "Intern creates presidential pardon form" << std::endl;
+                return(new PresidentialPardonForm(target_string));
             case 1:
-                std::cout << "Intern create robotomy request form" << std::endl;
-                return(new RobotomyRequestForm(target));
+                std::cout << "Intern creates robotomy request form" << std::endl;
+                return(new RobotomyRequestForm(target_string));
             case 2:
-                std::cout << "Intern create shrubbery creation form" << std::endl;
-                return(new ShrubberyCreationForm(target));
+                std::cout << "Intern creates shrubbery creation form" << std::endl;
+                return(new ShrubberyCreationForm(target_string));
             default :
                 throw FormDoesntExistsException();
         } 

@@ -15,9 +15,12 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <unistd.h>
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <cstdlib>
+#include <time.h>
 
 int main()
 {
@@ -28,123 +31,73 @@ int main()
     Form *ptr;
 
     std::cout << "\n--- Form number 1 ---\n" << std::endl;
-    try {
-        ptr = new PresidentialPardonForm();
-        std::cout << *ptr << std::endl;
-        jdoe.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+
+    ptr = new PresidentialPardonForm();
+    std::cout << *ptr << std::endl;
+    jdoe.signForm(*ptr);
+    jdoe.executeForm(*ptr);
+    delete ptr;
+
 
     std::cout << "\n--- Form number 2 ---\n" << std::endl;
-    try {
-        ptr = new PresidentialPardonForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+    ptr = new PresidentialPardonForm();
+    std::cout << *ptr << std::endl;
+    georges.signForm(*ptr);
+    jdoe.executeForm(*ptr);
+    delete ptr;
 
     std::cout << "\n--- Form number 3 ---\n" << std::endl;
-    try {
-        ptr = new PresidentialPardonForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(georges);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+    ptr = new PresidentialPardonForm();
+    std::cout << *ptr << std::endl;
+    georges.signForm(*ptr);
+    georges.executeForm(*ptr);
+    delete ptr;
 
     std::cout << "\n--- Form number 4 ---\n" << std::endl;
-    try {
-        ptr = new RobotomyRequestForm();
-        std::cout << *ptr << std::endl;
-        jdoe.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+    ptr = new RobotomyRequestForm();
+    std::cout << *ptr << std::endl;
+    jdoe.signForm(*ptr);
+    jdoe.executeForm(*ptr);
+    delete ptr;
 
     std::cout << "\n--- Form number 5 ---\n" << std::endl;
-    try {
-        ptr = new RobotomyRequestForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+    ptr = new RobotomyRequestForm();
+    std::cout << *ptr << std::endl;
+    georges.signForm(*ptr);
+    jdoe.executeForm(*ptr);
+    delete ptr;
 
     std::cout << "\n--- Form number 6 ---\n" << std::endl;
-    try {
-        ptr = new RobotomyRequestForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(georges);
-        ptr->execute(georges);
-        ptr->execute(georges);
-        ptr->execute(georges);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+    ptr = new RobotomyRequestForm();
+    std::cout << *ptr << std::endl;
+    srand((unsigned)time(NULL));
+    georges.signForm(*ptr);
+    georges.executeForm(*ptr);
+    georges.executeForm(*ptr);
+    georges.executeForm(*ptr);
+    georges.executeForm(*ptr);
+    delete ptr;
 
     std::cout << "\n--- Form number 7 ---\n" << std::endl;
-    try {
-        ptr = new ShrubberyCreationForm();
-        std::cout << *ptr << std::endl;
-        jdoe.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+    ptr = new ShrubberyCreationForm();
+    std::cout << *ptr << std::endl;
+    jdoe.signForm(*ptr);
+    jdoe.executeForm(*ptr);
+    delete ptr;
 
     std::cout << "\n--- Form number 8 ---\n" << std::endl;
-    try {
-        ptr = new ShrubberyCreationForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+    ptr = new ShrubberyCreationForm();
+    std::cout << *ptr << std::endl;
+    georges.signForm(*ptr);
+    jdoe.executeForm(*ptr);
+    delete ptr;
+
 
     std::cout << "\n--- Form number 9 ---\n" << std::endl;
-    try {
-        ptr = new ShrubberyCreationForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(georges);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
+    ptr = new ShrubberyCreationForm();
+    std::cout << *ptr << std::endl;
+    georges.signForm(*ptr);
+    georges.executeForm(*ptr);
+    delete ptr;
 
 }

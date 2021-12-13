@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:52:16 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/13 15:21:05 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/13 17:52:01 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,11 @@ void    PresidentialPardonForm::action(std::string &target) const
 void    PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
     std::string target;
-    
-    try
-    {
-        if (this->getState() == false)
-            throw UnsignedFormException();
-        if (executor.getGrade() > this->getExecGrade())
-            throw GradeTooLowException();
-        std::cout << executor.getName() << " executs " <<  *this << std::endl;
-        target = this->target;
-        this->action(target);    
-    }
-    catch(const std::exception &e)
-    {
-        std::cerr << executor.getName() << " cannot execute form because " << e.what() << std::endl;
-    }
+
+    if (this->getState() == false)
+        throw UnsignedFormException();
+    if (executor.getGrade() > this->getExecGrade())
+        throw GradeTooLowException();
+    target = this->target;
+    this->action(target);    
 }

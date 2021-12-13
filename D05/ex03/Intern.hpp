@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:30:47 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/13 16:12:30 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/13 18:15:45 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Intern
         
         Intern  &operator=(Intern const &other);
 
-        Form    *makeForm(std::string &type, std::string &target);
+        Form    *makeForm(const char *type, const char *target);
 
         class   FormDoesntExistsException : public std::exception {
             public:

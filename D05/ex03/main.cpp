@@ -15,52 +15,35 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>
 
 int main()
 {
-
+    Bureaucrat bigboss("BigBoss", 1);
+    Intern intern;
+    Form *form;
 
     std::cout << "\n--- Form number 1 ---\n" << std::endl;
     try {
-        ptr = new PresidentialPardonForm();
-        std::cout << *ptr << std::endl;
-        jdoe.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
+        form = intern.makeForm("exist pa", "victim");
+        delete form;
     }
     catch (std::exception &e) {
-        delete ptr;
         std::cerr << e.what() << std::endl;
     }
 
     std::cout << "\n--- Form number 2 ---\n" << std::endl;
     try {
-        ptr = new PresidentialPardonForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(jdoe);
-        delete ptr;
+        form = intern.makeForm("presidential pardon", "SuperRichCriminal");
+        bigboss.signForm(*form);
+        bigboss.executeForm(*form);
+        delete form;
     }
     catch (std::exception &e) {
-        delete ptr;
         std::cerr << e.what() << std::endl;
     }
-
-    std::cout << "\n--- Form number 3 ---\n" << std::endl;
-    try {
-        ptr = new PresidentialPardonForm();
-        std::cout << *ptr << std::endl;
-        georges.signForm(*ptr);
-        ptr->execute(georges);
-        delete ptr;
-    }
-    catch (std::exception &e) {
-        delete ptr;
-        std::cerr << e.what() << std::endl;
-    }
-
 
 }

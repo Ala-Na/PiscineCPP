@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:00:19 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/13 15:20:54 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/13 18:31:33 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,11 @@ void    ShrubberyCreationForm::action(std::string &target) const
 void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     std::string target;
-    
-    try
-    {
-        if (this->getState() == false)
-            throw UnsignedFormException();
-        if (executor.getGrade() > this->getExecGrade())
-            throw GradeTooLowException();
-        std::cout << executor.getName() << " executs " <<  *this << std::endl;
-        target = this->target;
-        this->action(target);    
-    }
-    catch(const std::exception &e)
-    {
-        std::cerr << executor.getName() << " cannot execute form because " << e.what() << std::endl;
-    }
 
+    if (this->getState() == false)
+        throw UnsignedFormException();
+    if (executor.getGrade() > this->getExecGrade())
+        throw GradeTooLowException();
+    target = this->target;
+    this->action(target); 
 }
