@@ -31,7 +31,8 @@ Bureaucrat::~Bureaucrat(void) {}
 
 Bureaucrat  &Bureaucrat::operator=(Bureaucrat const &other)
 {
-    this->grade = other.getGrade();
+    if (this != &other)
+        this->grade = other.getGrade();
     return *this;
 }
 
