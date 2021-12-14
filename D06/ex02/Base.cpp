@@ -6,14 +6,13 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 19:02:20 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/14 19:31:35 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/14 19:46:15 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 #include <iostream>
 #include <cstdlib>
-#include <typeinfo>
 
 Base::~Base(void) {}
 
@@ -76,7 +75,7 @@ void    identify(Base &p)
         std::cout << "A" << std::endl;
         (void)a;
     }
-    catch(std::bad_cast &bc)
+    catch(const std::exception &e)
     {
         try
         {
@@ -84,7 +83,7 @@ void    identify(Base &p)
             std::cout << "B" << std::endl;
             (void)b;
         }
-        catch(std::bad_cast &bc)
+        catch(const std::exception &e)
         {
             try
             {
@@ -92,7 +91,7 @@ void    identify(Base &p)
                 std::cout << "C" << std::endl;
                 (void)c;
             }
-            catch(std::bad_cast &bc)
+            catch(const std::exception &e)
             {
                 std::cerr << "error in dynamic cast" << std::endl;
             }
