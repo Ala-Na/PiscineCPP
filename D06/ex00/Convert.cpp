@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:46:41 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/14 17:27:59 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/14 18:02:43 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <string>
 #include <limits>
 #include <cmath>
+#include <iomanip>
 
 Convert::Convert(void) : value(-42)
 {
@@ -32,17 +33,14 @@ Convert::Convert(char const *param)
         throw InvalidParameter();
     sscanf(param, "%lf", &val);
     this->value = val;
-    if (val == 0 && strlen(param) == 1 && isprint(param[0]))
+    if (strlen(param) == 1 && isprint(param[0]) && !isdigit(param[0]))
     {
         char    c;
         sscanf(param, "%c", &c);
         this->value = static_cast<double>(c);
     }
-    else if (strlen(param) == 5 && param[0] == '+')
-    {
-        std::cout << "here" << std::endl;
+    else if (param[0] == '+')
         this->value = std::numeric_limits<double>::infinity();
-    }
 }
 
 bool    Convert::checkValidDouble(std::string param) const
@@ -56,7 +54,7 @@ bool    Convert::checkValidDouble(std::string param) const
         if (param.compare(spec_nb[i]) == 0)
             return true;
     }
-    if (param.length() == 1 && isprint(param[0]) == true)
+    if (param.length() == 1 && isprint(param[0]))
         return true;
     for (size_t i = 0; i < param.length(); i++)
     {
@@ -108,7 +106,7 @@ int Convert::convertToInt(void) const
     
     max = std::numeric_limits<int>::max();
     min = std::numeric_limits<int>::min();
-    if (this->value > max || this->value < min)
+    if (this->value != this->value || this->value > max || this->value < min)
         throw ConversionImpossible();
     return static_cast<int>(this->value);
 }
@@ -120,8 +118,10 @@ float   Convert::convertToFloat(void) const
     
     if (this->value == std::numeric_limits<double>::infinity())
         return std::numeric_limits<float>::infinity();
+    else if (this->value == -std::numeric_limits<double>::infinity())
+        return -std::numeric_limits<float>::infinity();
     max = std::numeric_limits<float>::max();
-    min = std::numeric_limits<float>::min();
+    min = -std::numeric_limits<float>::max();
     if (this->value > max || this->value < min)
         throw ConversionImpossible();
     return static_cast<float>(this->value);  
@@ -168,12 +168,7 @@ std::ostream    &operator<<(std::ostream &o, Convert const &conv)
         float f = conv.convertToFloat();
         if (f == std::numeric_limits<float>::infinity())
             o << "+ ";
-        o << f;
-        if (f == std::numeric_limits<float>::infinity()
-        || f == -std::numeric_limits<float>::infinity()
-        || f == std::numeric_limits<float>::NaN())
-            o << "f";
-        o << "\n";
+        o << std::setprecision(1) << std::fixed << f << "f" << "\n";
     }
     catch(const std::exception& e)
     {
@@ -183,6 +178,6 @@ std::ostream    &operator<<(std::ostream &o, Convert const &conv)
     double d = conv.getDoubleValue();
     if (d == std::numeric_limits<double>::infinity())
         o << "+ ";
-    o << d << "\n";
+    o << d ;
     return o;
 }
