@@ -6,19 +6,16 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:46:41 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/14 18:02:43 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/14 18:13:57 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
-#include <cstdio>
-#include <cctype>
 #include <iostream>
-#include <stdio.h>
+#include <cstdio>
 #include <string.h>
 #include <string>
 #include <limits>
-#include <cmath>
 #include <iomanip>
 
 Convert::Convert(void) : value(-42)
@@ -58,6 +55,8 @@ bool    Convert::checkValidDouble(std::string param) const
         return true;
     for (size_t i = 0; i < param.length(); i++)
     {
+        if (i == 0 && param[0] == '-')
+            i++;
         if (isdigit(param[i]) == false && param[i] != '.')
         {
             if (i != param.length() - 1 || param[i] != 'f')

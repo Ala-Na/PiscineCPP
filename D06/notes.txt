@@ -1,4 +1,0 @@
-Idee ex00: sscanf pour tranformer string en int/etc...
-ex :
-        if(sscanf(str.c_str(), "%f", &f) != 1)
-            // error management
