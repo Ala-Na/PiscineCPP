@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:58:38 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/15 11:16:49 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/15 21:04:29 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void    swap(T &a, T &b)
 }
 
 template <typename T>
-T const &min(T const &a, T const &b)
+T   &min(T &a, T &b)
 {
     return ((a < b) ? a : b);
 }
 
 template <typename T>
-T const &max(T const &a, T const &b)
+T   &max(T &a, T &b)
 {
     return ((a > b) ? a : b);
 }
