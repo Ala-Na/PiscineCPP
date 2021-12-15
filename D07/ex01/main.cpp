@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:30:20 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/15 14:35:30 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/15 21:11:36 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,6 @@ int main()
     std::cout << "\n---> While iter" << std::endl;
     ::iter(c, 3, test_fun2);    
     std::cout << std::endl;
+
+    return 0;
 }
