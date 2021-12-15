@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 11:11:20 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/15 11:16:02 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/15 12:13:48 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,15 @@ int main( void )
     std::cout << "---> Let's check min/max" << std::endl;
     std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
     std::cout << "max( c, d ) = " << ::max( c, d ) << "\n" << std::endl;
+
+    float e = 42.42f;
+    float f = 42.41f;
+    std::cout << "e = " << e << ", f = " << f << "\n" << std::endl;
+    std::cout << "---> Let's swap !" << std::endl;
+    ::swap(e, f);
+    std::cout << "e = " << e << ", f = " << f << "\n" << std::endl;
+    std::cout << "---> Let's check min/max" << std::endl;
+    std::cout << "min( e, f ) = " << ::min( e, f ) << std::endl;
+    std::cout << "max( e, f ) = " << ::max( e, f ) << "\n" << std::endl;
     return 0;
 }
