@@ -6,12 +6,11 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 14:08:02 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/16 17:38:18 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/16 17:41:06 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-#include <algorithm>
 #include <iterator>
 #include <vector>
 #include <list>
