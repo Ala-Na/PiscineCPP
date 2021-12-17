@@ -6,43 +6,45 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 17:42:36 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/16 19:22:53 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/17 18:22:53 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "span.hpp"
 #include <algorithm>
 
-Span::Span(void) : span(NULL), len(0) {};
+Span::Span(void) : span(), len(0) {};
 
-Span::Span(unsigned int const &len) : len(len)
+Span::Span(std::size_t const &len) : len(len)
 {
     std::set<int>   span;
-    this->span = &span;
+    this->span = span;
 }
 
-Span::Span(Span const &src) : len(src.len())
+Span::Span(Span const &src) : len(src.len)
 {
-    std::set<int>   span(src->span);
-    this->span = &span;
+    std::set<int>   span(src.span);
+    this->span = span;
 }
 
 Span::~Span(void) {};
 
 Span    &Span::operator=(Span const &other)
 {
-    this->len = src.len();
-    *(this->span).clear();
-    std::set<int> span(src->span);
-    this->span = &span;
-    
+    this->len = other.len;
+    this->span.clear();
+    std::set<int> span(other.span);
+    this->span = span;
+    return *this;
 }
 
 void    Span::addNumber(int item)
 {
-    if (*(this->span).size() == this->len)
+    if (this->span.empty() == false && this->span.size() == this->len)
         throw IsFullException();
-    *(this->span).insert(item);
+    if (this->span.find(item) != this->span.end())
+        throw AlreadyPresentException();
+    this->span.insert(item);
 }
 
 void    Span::addNumber(int start, int end)
@@ -51,21 +53,35 @@ void    Span::addNumber(int start, int end)
         addNumber(i);
 }
 
-unsigned int    Span::shortestSpan(void)
+void    Span::showContent(void)
 {
-    unsigned int    short_span;
-        
-    if (*(this->span).size() <= 1)
-        throw ImpossibleSpanException();
-    short_span = *(this->span)[]
-    for (int i = 0; i < *(this->span).size(); i++)
-    {
-        
-    }
-    
+    for (std::set<int>::iterator it = this->span.begin(); it != this->span.end(); ++it)
+        std::cout << *it << " ";
+    std::cout << std::endl;
 }
 
+int    Span::shortestSpan(void)
+{
+    int    short_span;
+        
+    if (this->span.size() <= 1)
+        throw ImpossibleSpanException();
+    short_span = 0;
+    for (std::set<int>::iterator it = this->span.begin()++; it != this->span.end(); ++it)
+    {
+        std::set<int>::iterator closest = this->span.upper_bound(*it);
+        if (short_span == 0 || (it != this->span.end() && short_span > (*closest - *it)))
+            short_span = (*closest - *it);
+    }
+    return short_span;
+}
 
+unsigned int    Span::longestSpan(void)
+{
+    if (this->span.size() <= 1)
+        throw ImpossibleSpanException();
+    return *this->span.rbegin() - *this->span.begin();
+}
 
 const char  *Span::IsFullException::what(void) const throw()
 {
@@ -75,4 +91,9 @@ const char  *Span::IsFullException::what(void) const throw()
 const char  *Span::ImpossibleSpanException::what(void) const throw()
 {
     return "Can't find any span: Span object doesn't have enought items!";
+}
+
+const char  *Span::AlreadyPresentException::what(void) const throw()
+{
+    return "Can't add new valye : Already present in Span object!";
 }

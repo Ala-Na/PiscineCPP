@@ -16,7 +16,7 @@ CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g -I$(HEADER_DIR)
 
 SRCS_DIR = .
-SRCS = main.cpp
+SRCS = main.cpp span.cpp
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 OBJS_DIR = .objs
