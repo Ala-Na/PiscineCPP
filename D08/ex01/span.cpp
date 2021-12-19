@@ -6,7 +6,7 @@
 /*   By: anadege <anadege@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 17:42:36 by anadege           #+#    #+#             */
-/*   Updated: 2021/12/17 18:22:53 by anadege          ###   ########.fr       */
+/*   Updated: 2021/12/19 15:43:45 by anadege          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int    Span::shortestSpan(void)
     for (std::set<int>::iterator it = this->span.begin()++; it != this->span.end(); ++it)
     {
         std::set<int>::iterator closest = this->span.upper_bound(*it);
-        if (short_span == 0 || (it != this->span.end() && short_span > (*closest - *it)))
+        if (short_span == 0 || ((*closest - *it) > 0 && short_span > (*closest - *it)))
             short_span = (*closest - *it);
     }
     return short_span;
@@ -95,5 +95,5 @@ const char  *Span::ImpossibleSpanException::what(void) const throw()
 
 const char  *Span::AlreadyPresentException::what(void) const throw()
 {
-    return "Can't add new valye : Already present in Span object!";
+    return "Can't add new value : Already present in Span object!";
 }
