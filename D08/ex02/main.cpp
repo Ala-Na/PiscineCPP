@@ -34,6 +34,7 @@ int main()
     mstack.push(737);
     std::cout << "\033[0;33mPushing 0 on MutantStack\033[0m" << std::endl; 
     mstack.push(0);
+    std::cout << "\033[0;32mCheck if empty MutantStack: \033[0m" << mstack.empty() << " (0 == false)" << std::endl;
     std::cout << "\033[0;32mIterating MutantStack: \033[0m";
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
@@ -77,6 +78,7 @@ int main()
     lst.push_back(737);
     std::cout << "\033[0;33mPushing 0 on list\033[0m" << std::endl; 
     lst.push_back(0);
+    std::cout << "\033[0;32mCheck if empty list: \033[0m" << lst.empty() << " (0 == false)" << std::endl;
     std::cout << "\033[0;32mIterating list: \033[0m";
     std::list<int>::iterator it2 = lst.begin();
     std::list<int>::iterator ite2 = lst.end();
